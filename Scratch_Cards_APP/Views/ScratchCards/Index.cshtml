@@ -1,6 +1,11 @@
 ﻿@model IEnumerable<Scratch_Cards_APP.Models.ScratchCard>
 
-<h2>Scratch Cards</h2>
+<div class="heading-container">
+    <h2>Scratch Cards</h2>
+    <form asp-controller="ScratchCards" asp-action="Generate" method="post">
+        <button type="submit" class="btn btn-primary">Generate New Card</button>
+    </form>
+</div>
 
 <table class="table">
     <thead>

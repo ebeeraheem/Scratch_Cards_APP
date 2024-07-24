@@ -50,4 +50,12 @@ public class ScratchCardsController : Controller
 
         return RedirectToAction(nameof(Index));
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Generate()
+    {
+        await _cardsService.GenerateCardAsync();
+
+        return RedirectToAction(nameof(Index));
+    }
 }
