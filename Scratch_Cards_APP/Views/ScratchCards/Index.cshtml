@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Scratch_Cards_APP.Models.ScratchCard>
+
+<h2>Scratch Cards</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Card Number</th>
+            <th>Is Used</th>
+            <th>Is Purchased</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var card in Model)
+        {
+            <tr>
+                <td>@card.Id</td>
+                <td>@card.CardNumber</td>
+                <td>@card.IsUsed</td>
+                <td>@card.IsPurchased</td>
+                <td>
+                    @if (!card.IsPurchased)
+                    {
+                        <form asp-action="Purchase" method="post" asp-route-id="@card.Id">
+                            <button type="submit" class="btn btn-primary">Purchase</button>
+                        </form>
+                    }
+                    @if (card.IsPurchased && !card.IsUsed)
+                    {
+                        <form asp-action="Use" method="post" asp-route-id="@card.Id">
+                            <button type="submit" class="btn btn-secondary">Use</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

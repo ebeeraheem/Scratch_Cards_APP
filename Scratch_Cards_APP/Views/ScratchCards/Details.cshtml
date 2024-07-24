@@ -1,0 +1,17 @@
+﻿@model Scratch_Cards_APP.Models.ScratchCard
+
+<h2>Card Details</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+        <dt class="col-sm-3">Card Number</dt>
+        <dd class="col-sm-9">@Model.CardNumber</dd>
+        <dt class="col-sm-3">Is Used</dt>
+        <dd class="col-sm-9">@Model.IsUsed</dd>
+        <dt class="col-sm-3">Is Purchased</dt>
+        <dd class="col-sm-9">@Model.IsPurchased</dd>
+    </dl>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</div>
